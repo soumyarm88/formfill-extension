@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button id="fill">AutoFill</button>
+    <script>
+      document.getElementById("fill").addEventListener("click", async () => {
+        let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          files: ["content.js"]
+        });
+      });
+    </script>
+  </body>
+</html>
+
