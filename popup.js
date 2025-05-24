@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const presetNameInput = document.getElementById('presetName');
     const presetValueInput = document.getElementById('presetValue');
     const savePresetBtn = document.getElementById('savePreset');
-    const fillSelectedBtn = document.getElementById('fillSelected');
     const presetsList = document.getElementById('presetsList');
     const fileInput = document.getElementById('fileInput');
     const importBtn = document.getElementById('importPresets');

@@ -7,14 +7,14 @@
       width: 300px;
       padding: 5px;
       font-family: Arial, sans-serif;
-    }
-    .header {
-      text-align: center;
-      color: #333;
-      margin-bottom: 5px;
+      font-size: 12px;
     }
     .form-group {
-      margin-bottom: 5px;
+      margin: 5px 0;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #f9f9f9;
     }
     label {
       display: block;
@@ -24,10 +24,13 @@
     }
     input, textarea {
       width: 100%;
-      padding: 8px;
+      padding: 5px;
       border: 1px solid #ddd;
       border-radius: 4px;
       box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin-bottom: 5px;
     }
     textarea {
       height: 60px;
@@ -36,11 +39,11 @@
     .button-group {
       display: flex;
       gap: 10px;
-      margin-top: 15px;
+      margin-top: 5px;
     }
     button {
       flex: 1;
-      padding: 10px;
+      padding: 5px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -61,30 +64,19 @@
       border: 1px solid #eee;
       border-radius: 3px;
     }
-    .fill-btn {
-      background-color: #2196F3;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      padding: 2px 6px;
-      cursor: pointer;
-      font-size: 12px;
-      margin-right: 5px;
-      max-width: 25px;
-    }
-    .fill-btn:hover {
-      background-color: #1976D2;
+    .preset-item:hover {
+      background-color: #ddd;
     }
     .preset-name {
-      font-weight: bold;
       margin-right: 10px;
       min-width: 120px;
       text-align: left;
+      color: #222;
     }
     .preset-value {
       flex: 1;
       font-size: 12px;
-      color: #666;
+      color: #888;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -97,7 +89,7 @@
       border-radius: 3px;
       padding: 2px 6px;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 15px;
       margin-left: 5px;
       max-width: 25px;
     }
@@ -105,9 +97,8 @@
       background-color: #d32f2f;
     }
     .presets-section {
-      margin-top: 20px;
-      border-top: 1px solid #eee;
-      padding-top: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
     }
     .import-btn {
       background-color: #FF9800;
@@ -124,8 +115,8 @@
       background-color: #7B1FA2;
     }
     .file-section {
-      margin: 15px 0;
-      padding: 15px;
+      margin: 5px 0;
+      padding: 5px;
       border: 1px solid #ddd;
       border-radius: 4px;
       background-color: #f9f9f9;
@@ -133,7 +124,6 @@
     .no-presets {
       text-align: center;
       color: #999;
-      font-style: italic;
     }
     .error-message {
       color: #f44336;
@@ -148,24 +138,21 @@
   </style>
 </head>
 <body>
-<div class="header">
-  <h3>Form Auto-Filler</h3>
-</div>
-
 <div class="presets-section">
-  <div id="presetsList" class="no-presets">No presets saved yet</div>
+  <label for="presetsList">Form Filler</label>
+  <div id="presetsList" class="no-presets">No presets saved yet!</div>
 </div>
 
 <div class="form-group">
-  <h4>Add a new preset:</h4>
-  <input type="text" id="presetName" placeholder="Preset Name: e.g., Name, Email, Address">
-  <textarea id="presetValue" placeholder="Value: Enter the text you want to fill"></textarea>
+  <label for="presetName">Create/Update Preset</label>
+  <input type="text" id="presetName" placeholder="Provide a name. Eg. email">
+  <textarea id="presetValue" placeholder="Provide a value. Eg. test@email.com"></textarea>
   <button class="save-btn" id="savePreset">Save Preset</button>
 </div>
 
 <div class="file-section">
   <label for="fileInput">Import Presets from File:</label>
-  <input type="file" id="fileInput" accept=".json,.csv,.txt" style="margin: 10px 0;">
+  <input type="file" id="fileInput" accept=".json,.csv,.txt" style="margin: 5px 0;">
   <div class="button-group">
     <button class="import-btn" id="importPresets">Import</button>
     <button class="export-btn" id="exportPresets">Export</button>
