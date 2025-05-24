@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.getElementById('fileInput');
     const importBtn = document.getElementById('importPresets');
     const exportBtn = document.getElementById('exportPresets');
+    const storage = chrome.storage.local
 
     // Load and display presets when popup opens
     loadPresets();
@@ -43,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function savePreset(name, value) {
-        chrome.storage.sync.get(['presets'], function(result) {
+        storage.get(['presets'], function(result) {
             const presets = result.presets || {};
             presets[name] = value;
 
-            chrome.storage.sync.set({presets: presets}, function() {
+            storage.set({presets: presets}, function() {
                 console.log('Preset saved');
             });
         });
@@ -77,11 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 // Merge with existing presets
-                chrome.storage.sync.get(['presets'], function(result) {
+                storage.get(['presets'], function(result) {
                     const existingPresets = result.presets || {};
                     const mergedPresets = {...existingPresets, ...presets};
 
-                    chrome.storage.sync.set({presets: mergedPresets}, function() {
+                    storage.set({presets: mergedPresets}, function() {
                         const count = Object.keys(presets).length;
                         showMessage(`Successfully imported ${count} presets`, 'success');
                         loadPresets();
@@ -171,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function exportPresets() {
-        chrome.storage.sync.get(['presets'], function(result) {
+        storage.get(['presets'], function(result) {
             const presets = result.presets || {};
 
             if (Object.keys(presets).length === 0) {
@@ -222,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadPresets() {
-        chrome.storage.sync.get(['presets'], function(result) {
+        storage.get(['presets'], function(result) {
             const presets = result.presets || {};
             displayPresets(presets);
         });
@@ -274,11 +275,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function deletePreset(name) {
-        chrome.storage.sync.get(['presets'], function(result) {
+        storage.get(['presets'], function(result) {
             const presets = result.presets || {};
             delete presets[name];
 
-            chrome.storage.sync.set({presets: presets}, function() {
+            storage.set({presets: presets}, function() {
                 loadPresets();
             });
         });
