@@ -27,17 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loadPresets();
     });
 
-    // Fill selected field with current preset value
-    fillSelectedBtn.addEventListener('click', function() {
-        const value = presetValueInput.value.trim();
-        if (!value) {
-            alert('Please enter a value to fill');
-            return;
-        }
-
-        fillActiveField(value);
-    });
-
     // Import presets from file
     importBtn.addEventListener('click', function() {
         const file = fileInput.files[0];
@@ -275,6 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.target === deleteBtn) return;
                 presetValueInput.value = presets[name];
                 presetNameInput.value = name;
+                fillActiveField(presets[name]);
             });
 
             presetDiv.appendChild(nameSpan);

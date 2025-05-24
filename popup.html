@@ -5,16 +5,16 @@
   <style>
     body {
       width: 300px;
-      padding: 15px;
+      padding: 5px;
       font-family: Arial, sans-serif;
     }
     .header {
       text-align: center;
       color: #333;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
     }
     .form-group {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     label {
       display: block;
@@ -50,15 +50,8 @@
       background-color: #4CAF50;
       color: white;
     }
-    .fill-btn {
-      background-color: #2196F3;
-      color: white;
-    }
     .save-btn:hover {
       background-color: #45a049;
-    }
-    .fill-btn:hover {
-      background-color: #1976D2;
     }
     .preset-item {
       display: flex;
@@ -68,10 +61,25 @@
       border: 1px solid #eee;
       border-radius: 3px;
     }
+    .fill-btn {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      padding: 2px 6px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-right: 5px;
+      max-width: 25px;
+    }
+    .fill-btn:hover {
+      background-color: #1976D2;
+    }
     .preset-name {
       font-weight: bold;
       margin-right: 10px;
-      min-width: 80px;
+      min-width: 120px;
+      text-align: left;
     }
     .preset-value {
       flex: 1;
@@ -80,6 +88,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      text-align: left;
     }
     .delete-btn {
       background-color: #f44336;
@@ -90,6 +99,7 @@
       cursor: pointer;
       font-size: 12px;
       margin-left: 5px;
+      max-width: 25px;
     }
     .delete-btn:hover {
       background-color: #d32f2f;
@@ -142,19 +152,15 @@
   <h3>Form Auto-Filler</h3>
 </div>
 
-<div class="form-group">
-  <label for="presetName">Preset Name:</label>
-  <input type="text" id="presetName" placeholder="e.g., Name, Email, Address">
+<div class="presets-section">
+  <div id="presetsList" class="no-presets">No presets saved yet</div>
 </div>
 
 <div class="form-group">
-  <label for="presetValue">Value:</label>
-  <textarea id="presetValue" placeholder="Enter the text you want to fill"></textarea>
-</div>
-
-<div class="button-group">
+  <h4>Add a new preset:</h4>
+  <input type="text" id="presetName" placeholder="Preset Name: e.g., Name, Email, Address">
+  <textarea id="presetValue" placeholder="Value: Enter the text you want to fill"></textarea>
   <button class="save-btn" id="savePreset">Save Preset</button>
-  <button class="fill-btn" id="fillSelected">Fill Selected Field</button>
 </div>
 
 <div class="file-section">
@@ -164,11 +170,6 @@
     <button class="import-btn" id="importPresets">Import</button>
     <button class="export-btn" id="exportPresets">Export</button>
   </div>
-</div>
-
-<div class="presets-section">
-  <h4>Saved Presets:</h4>
-  <div id="presetsList" class="no-presets">No presets saved yet</div>
 </div>
 
 <script src="popup.js"></script>
