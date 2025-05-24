@@ -5,7 +5,8 @@
   "description": "Quickly fill text boxes with prepared values",
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "unlimitedStorage"
   ],
   "action": {
     "default_popup": "popup.html",
