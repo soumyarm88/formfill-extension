@@ -1,6 +1,6 @@
 # FormFill Extension 🚀
 
-A Chrome browser extension to quickly fill text boxes in forms with prepared values.
+A Chrome browser extension that helps to quickly fill text boxes in forms with prepared values.
 
 ![Extension Preview](https://img.shields.io/badge/Chrome-Extension-brightgreen)
 ![Version](https://img.shields.io/badge/version-1.0-blue)
@@ -41,7 +41,9 @@ A Chrome browser extension to quickly fill text boxes in forms with prepared val
 1. Navigate to any webpage with text input fields
 2. Click on the text field you want to fill
 3. Open the FormFill Extension popup
-4. Click on a saved preset to use it, or
+4. Click on a saved preset to use it.
+
+![image](examples/example.png?raw=true)
 
 ### Managing Presets
 - **Use a preset**: Click on any saved preset in the list
